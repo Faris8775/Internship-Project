@@ -20,15 +20,6 @@ class OffPlanPage(Page):
         self.verify_text('Off-plan', *self.OFF_PLAN_TEXT)
 
     def verify_each_product_on_off_plan(self):
-        # all_projects = self.driver.find_elements(*self.OFF_PLAN_PROJECTS)  # [WebEl1, WebEl2, WebEl3, WebEl4]
-        # titles = self.driver.find_elements(*self.PROJECT_NAME)
-        # print(titles)
-        #
-        # for title in titles:
-        #     title_text = title.text
-        #     assert title_text, 'Project title not shown'
-        #     print(title)
-        #     self.find_element(*self.PROJECT_IMG)
 
         element = self.find_element(*self.OFF_PLAN_PROJECTS)
         sleep(8)
@@ -44,10 +35,4 @@ class OffPlanPage(Page):
             self.click(*self.NEXT_PAGE)
 
 
-        # all_products = self.driver.find_elements(*self.LISTINGS)  # [WebEl1, WebEl2, WebEl3, WebEl4]
-        #
-        # for product in all_products:
-        #     title = product.find_element(*self.PRODUCT_TITLE).text
-        #     assert title, 'Product title not shown'
-        #     print(title)
-        #     product.find_element(*self.PRODUCT_IMG)
+
