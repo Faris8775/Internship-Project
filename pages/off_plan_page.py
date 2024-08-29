@@ -10,6 +10,7 @@ class OffPlanPage(Page):
     OFF_PLAN_PROJECTS = (By.CSS_SELECTOR, 'div.cards-properties')
     PROJECT_NAME = (By.CSS_SELECTOR, 'div.project-name')
     PROJECT_IMG = (By.CSS_SELECTOR, 'div.project-image')
+    NEXT_PAGE = (By.CSS_SELECTOR, '.pagination__button.w-inline-block')
 
     # Click the Off-Plan button
     def click_off_plan_button(self):
@@ -30,10 +31,23 @@ class OffPlanPage(Page):
         #     self.find_element(*self.PROJECT_IMG)
 
         element = self.find_element(*self.OFF_PLAN_PROJECTS)
-        sleep(10)
-        image_div = element.find_element(*self.PROJECT_IMG)
-        image_style = image_div.get_attribute('style')
-        assert 'background-image' in image_style and 'url(' in image_style, 'Element is missing a picture.'
+        sleep(8)
 
-        title_div = element.find_element(*self.PROJECT_NAME)
-        assert title_div.text.strip() != '', 'Element is missing a title.'
+        for page_num in range(1,52):
+            sleep(6)
+            image_div = element.find_element(*self.PROJECT_IMG)
+            image_style = image_div.get_attribute('style')
+            assert 'background-image' in image_style and 'url(' in image_style, 'Element is missing a picture.'
+
+            title_div = element.find_element(*self.PROJECT_NAME)
+            assert title_div.text.strip() != '', 'Element is missing a title.'
+            self.click(*self.NEXT_PAGE)
+
+
+        # all_products = self.driver.find_elements(*self.LISTINGS)  # [WebEl1, WebEl2, WebEl3, WebEl4]
+        #
+        # for product in all_products:
+        #     title = product.find_element(*self.PRODUCT_TITLE).text
+        #     assert title, 'Product title not shown'
+        #     print(title)
+        #     product.find_element(*self.PRODUCT_IMG)
