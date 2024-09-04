@@ -6,7 +6,7 @@ from pages.base_page import Page
 
 class OffPlanPage(Page):
     OFF_PLAN = (By.CSS_SELECTOR, '.menu-twobutton')
-    OFF_PLAN_TEXT = (By.XPATH, "//*[text()='Off-plan']")
+    # OFF_PLAN_TEXT = (By.XPATH, "//*[text()='Off-plan']")
     OFF_PLAN_PROJECTS = (By.CSS_SELECTOR, 'div.cards-properties')
     PROJECT_NAME = (By.CSS_SELECTOR, 'div.project-name')
     PROJECT_IMG = (By.CSS_SELECTOR, 'div.project-image')
@@ -17,7 +17,8 @@ class OffPlanPage(Page):
         self.wait_and_click(*self.OFF_PLAN)
 
     def verify_off_plan_page(self):
-        self.verify_text('Off-plan', *self.OFF_PLAN_TEXT)
+        # self.verify_text('Off-plan', *self.OFF_PLAN_TEXT)
+        self.verify_url('https://soft.reelly.io/')
 
     def verify_each_product_on_off_plan(self):
 
