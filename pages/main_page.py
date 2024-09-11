@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from time import sleep
 
 from pages.base_page import Page
 
@@ -25,8 +26,8 @@ class MainPage(Page):
     def login(self):
         self.input_text('faruka16@gmail.com', *self.EMAIL)
         self.input_text('sLa6QJJfid!HPrEB', *self.PASSWORD)
-        self.click(*self.LOGIN)
-
+        self.wait_and_click(*self.LOGIN)
+        sleep(5)
 
 
 

@@ -1,5 +1,5 @@
 from behave import given, when, then
-
+from time import sleep
 
 
 @given('Open Reelly main page')
@@ -19,4 +19,5 @@ def log_in(context):
 
 @when('Click on “off plan” at the left side menu')
 def click_off_plan(context):
+    #sleep(5)
     context.app.off_plan_page.click_off_plan_button()
